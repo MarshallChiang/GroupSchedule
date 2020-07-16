@@ -2,9 +2,31 @@
 Manipulate events composed of group object, activate and deactive by shifting time window and event priority.
 
 ## Environment setup
-
-
-
+#### Database schema
+| Field             | Type                | Null | Key | Default | Extra          |
+|-------------------|---------------------|------|-----|---------|----------------|
+| id                | int(10) unsigned    | NO   | PRI | NULL    | auto_increment |
+| cashflow_group_id | varchar(10)         | YES  |     | NULL    |                |
+| offer_id          | varchar(10)         | NO   |     | NULL    |                |
+| affiliates        | varchar(100)        | YES  |     | NULL    |                |
+| name              | varchar(100)        | YES  |     | NULL    |                |
+| description       | text                | YES  |     | NULL    |                |
+| percent           | decimal(4,2)        | YES  |     | 0.00    |                |
+| rate              | decimal(10,2)       | YES  |     | 0.00    |                |
+| default_value     | text                | NO   |     | NULL    |                |
+| actived_from      | datetime            | NO   |     | NULL    |                |
+| actived_to        | datetime            | NO   |     | NULL    |                |
+| created_at        | datetime            | NO   |     | NULL    |                |
+| rules             | text                | YES  |     | NULL    |                |
+| status            | varchar(20)         | NO   |     | NULL    |                |
+| group_type        | varchar(5)          | NO   |     | NULL    |                |
+| follow            | tinyint(3) unsigned | NO   |     | NULL    |                |
+| sub_1             | text                | YES  |     | NULL    |                |
+#### Install libraries
+```bash
+$ cd path/to/project
+$ pip install -r requirements.txt -t .
+```
 ## Available Methods
 
 * [OfferObject](#class-offergroupcursoroffer_id-kwargs)
