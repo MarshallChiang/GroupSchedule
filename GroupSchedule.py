@@ -1,16 +1,17 @@
 import collections
 import datetime
 import json
-from dateutil.parser import parse
 import requests
 import pymysql
 import urllib.parse
 import re
+import os
+from dateutil.parser import parse
 
-database = pymysql.connect(host='13.114.105.152', port=3306, user='Ops', password='iloveShopBack!4', database='ShopBack', charset='utf8', autocommit='true')
+database = pymysql.connect(host=os.environ['db_server_ip'], port=3306, user=os.environ['db_user']', password=os.environ['db_pwd'], database=os.environ['db_table_name'], charset='utf8', autocommit='true')
 api_url = 'https://shopback.api.hasoffers.com/Apiv3/json'
 config_params = {
-    'NetworkToken' : 'NETJTqTrjj38XObdBhygFOQ2ULa1V2'
+    'NetworkToken' : os.environ['api_token']
 }
 '''
 v 1.02 **
