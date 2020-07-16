@@ -1,5 +1,8 @@
-## Solution
-**Automatically trigger and reverse the time sensitvie schedule task with input detail accordingly**, will showcase method and use cases in below topic and things that need to be noticed while using.
+## Introduction
+Manipulate events composed of group object, activate and deactive by shifting time window and event priority.
+
+## Environment setup
+
 
 
 ## Available Methods
