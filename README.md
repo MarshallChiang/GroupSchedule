@@ -255,6 +255,7 @@ group = cursor.groups[0]
 |_percent_|decimal(4,2)|_percent value of this group_|
 |_rate_|_decimal(10,2)_|_decimal value of this group_|
 |_db_id_|_int_|_auto increment number in database if cursor is fetched from database_|
+|_follow_|_tiny int_|_a binary number to determine whether this group is created by branch as a copy (1) or has been assigned value that need to be prioritized (0)_|
 #### _setup_value(**kwargs)_
 
 assign percent of rate value to the group object, group with value assigned by this function will be prioritized and always be fetched when this cashflow_group_id is also existed in the cursor configuration.
