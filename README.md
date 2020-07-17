@@ -251,7 +251,7 @@ group = cursor.groups[0]
 | Attributes | Type | Description |
 |----|----|----|
 |_cashflow_group_id_|_int_|_id of group_|
-|_offer_id|_int_|_id of the initialized offer with group included_|
+|_offer_id_|_int_|_id of the initialized offer with group included_|
 |_percent_|decimal(4,2)|_percent value of this group_|
 |_rate_|_decimal(10,2)_|_decimal value of this group_|
 |_db_id_|_int_|_auto increment number in database if cursor is fetched from database_|
