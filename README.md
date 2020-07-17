@@ -265,3 +265,8 @@ assign percent of rate value to the group object, group with value assigned by t
 |----|----|----|----|
 |_percent_|_float_|_Optional_|_percent(%) value, default as 0_|
 |_rate_|_float_|_Optional_|_rate($) value, default as 0_|
+
+#### Return :
+```Python
+None
+```
