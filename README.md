@@ -81,7 +81,7 @@ None
 
 #### function _group_display(**kwargs)_
 
-Search groups by names or value and return dictionary information.
+search groups inside the cursor by filtering name or value.
 
 #### Parameters :
 | Parameter | Type | Required | Description |
@@ -125,7 +125,7 @@ groups = cursor.group_display(text_filter='AU')
 
 #### function _group_append(cashflow_group_id, **kwargs)_
 
-add group into cursor object and define its value, at least one type of value need to be defined.
+append new group into cursor with either one of percent or rate assigned at least.
 
 #### Parameters :
 | Parameter | Type | Required | Description |
@@ -163,7 +163,7 @@ None
 
 #### function _setup_default_value(**kwargs)_
 
-setup default percent or rate for object
+assign default percent or rate for object
 
 #### Parameters
 | Parameter | Type | Required | Description |
@@ -188,14 +188,14 @@ cursor.setup_default_value(percent=10, rate=5.5)
 
 #### function _setup_period(**kwargs)_
 
-setup start and end datetime for this ready-to-push configure
+specify start and end datetime for the ready-to-push configuration.
 
 #### Parameters
 | Parameter | Type | Required | Description |
 |----|----|----|----|
-|_actived_from_|_datetime string_|_Required_|_start date of this configure_|
-|_actived_to_|_datetime string_|_Required_|_end date of this configure_|
-|_is_base_|_Boolean_|_Optional_|_define an enternal configure for others fallback to, default as `False`. if `True`, actived_from and actived_to will be auto adjust into min and max datetime value_|
+|_actived_from_|_datetime string_|_Required_|_start date of this configuration_|
+|_actived_to_|_datetime string_|_Required_|_end date of this configuration_|
+|_is_base_|_Boolean_|_Optional_|_setup eternal configuration of this cursor, groups of this _|
 
 ```Python
 # set specific time range for this configure
@@ -212,7 +212,7 @@ None
 
 #### fuction _push_cursor(**kwargs)_
 
-push the configure into mysql database
+push the configuration into database
 
 #### Parameters
 | Parameter | Type | Required | Description |
@@ -230,7 +230,7 @@ None
 ---
 #### function _deploy_cursor()_
 
-deploy the configure into platform, prioritize configure by `created_at`, the latest will be used for deployment
+deploy configuration loaded on cursor object to server.
 
 ```Python
 cursor.deploy_cursor()
@@ -243,18 +243,21 @@ None
 ### class _Group(offer_id, cashflow_group_id, percent, rate, **kwargs)_
 
 ```Python
-# we execute Group object from OfferCursor object, we don't really create one
+# group object will be initialized along with cursor object.
 
-# index directly from OfferCursor attribute
 group = cursor.groups[0]
-
-# get from group_display
-groups = cursor.group_display(text_filter='A', return_object=True)
-group = groups[0]
 ```
+#### Instance Attributes
+| Attributes | Type | Description |
+|----|----|----|
+|_cashflow_group_id_|_int_|_id of group_|
+|_offer_id|_int_|_id of the initialized offer with group included_|
+|_percent_|decimal(4,2)|_percent value of this group_|
+|_rate_|_decimal(10,2)_|_decimal value of this group_|
+|_db_id_|_int_|_auto increment number in database if cursor is fetched from database_|
 #### _setup_value(**kwargs)_
 
-setup percent or rate value for per group. for every value declared group, would be out of job prioritize linkage when it's  the highest and proceed to the actived_to
+assign percent of rate value to the group object, group with value assigned by this function will be prioritized and always be fetched when this cashflow_group_id is also existed in the cursor configuration.
 
 #### Parameters
 | Parameter | Type | Required | Description |
