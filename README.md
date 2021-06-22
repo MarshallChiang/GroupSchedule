@@ -1,6 +1,6 @@
 ## Introduction
 Manipulate events composed of group object, activate and deactive by shifting time window and event priority.
-<img src="https://marshallfiles.s3-ap-northeast-1.amazonaws.com/github-static/component_image_1_groupschedule.png" width=75% height=75%>
+<img src="https://github.com/MarshallChiang/marshallchiang.github.io/blob/master/assets/img/portfolio/fullsize/GroupSchedule_image_1.jpg?raw=true" width=75% height=75%>
 
 ## Environment setup
 #### Database schema
