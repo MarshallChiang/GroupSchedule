@@ -91,7 +91,7 @@ class OfferGroupsCursor :
                 raise ValueError(r.json()['response']['errors'])
 
             group_async_fetch_urls = [api_url + '?' + '&'.join(str(k) + '=' + str(v) for k, v in {
-                'NetworkToken' : 'NETJTqTrjj38XObdBhygFOQ2ULa1V2',
+                'NetworkToken' : creds['api_token'],
                 'Target':'CashflowGroup',
                 'Method':'findCashflowGroupById', 
                 'cashflow_group_id': cid
