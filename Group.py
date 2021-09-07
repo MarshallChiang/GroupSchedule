@@ -150,10 +150,11 @@ class Group :
                 config_params 
             ])
         if not r.json()['response']['errors'] :
-            self.name = r.json()['response']['data']['name']
-            self.description = r.json()['response']['data']['description']
-            self.affiliates = r.json()['response']['data']['affiliates']
-            self.rules = r.json()['response']['data']['rules']
+            d = r.json()
+            self.name = d['response']['data']['name']
+            self.description = d['response']['data']['description']
+            self.affiliates = [ a['id'] for a in d['response']['data']['affiliates']]
+            self.rules = d['response']['data']['rules']
         else :
             raise ValueError(r.json()['response']['errors'])
 
