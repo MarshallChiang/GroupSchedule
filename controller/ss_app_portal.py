@@ -1,3 +1,4 @@
+from dateutil.parser import parse
 import pymysql
 import time
 import os
@@ -42,6 +43,10 @@ def ss_app_portal(even, context) :
 
         # check the name given by sheet user exist or not in OfferGroupCursor.groups, which means the snapshot in that moment.
         group_find = cursor.group_display(text_filter=e['group_name'], return_object=True) 
+
+        if parse(e['actived_from']) >= parse(e['actived_to']) : # deactive before active
+            res.append({'index' : e['index'], 'status' : False, 'note' : '[Error] Incorrect Datetime Value.'})
+            break
 
         if e['group_name'] == 'ba$e' : # setup default value if the input is `ba$e` in sheet.
             cursor.setup_default_value(rate=e['rate'], percent=e['percent'])
