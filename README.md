@@ -67,7 +67,7 @@ None
 |----|----|----|
 |_offer_id_|_int_|_id of the initialized offer_|
 |_actived_from_|_string_|_datetime of this configuration start_|
-|_actived_from_|_string_|_datetime of this configuration end_|
+|_actived_to_|_string_|_datetime of this configuration end_|
 |_default_value_|_JSON string_|_default percentage and rate value of this configuration_|
 |_groups_|_list_|_list with [groups](#class-groupoffer_id-cashflow_group_id-percent-rate-kwargs) object_|
 |_branch_at_|_datetime string_|_datetime specified for fetching specific configuration_|
